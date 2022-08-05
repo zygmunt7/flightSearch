@@ -8,7 +8,7 @@ public class Main2 {
         FlightDatabase flightDatabase = new FlightDatabase();
         flightDatabase.CheckIfFlightExists("Warsaw", "New York");
         flightDatabase.getFlightsFromCity("Waw");
-        flightDatabase.getFlightToCity("New York");
+        flightDatabase.getFlightToCity("York");
     }
 }
 class Flight{
