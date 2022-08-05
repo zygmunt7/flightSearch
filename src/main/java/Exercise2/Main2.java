@@ -7,6 +7,7 @@ public class Main2 {
     public static void main(String[] args) {
         FlightDatabase flightDatabase = new FlightDatabase();
         flightDatabase.CheckIfFlightExists("Warsaw", "New York");
+        flightDatabase.getFlightsFromCity("Warsaw");
     }
 }
 class Flight{
@@ -50,6 +51,17 @@ class FlightDatabase{
             System.out.println("Flight with given params not exists");
         }
     }
+    public void getFlightsFromCity(String city){
+        boolean cityExists= true;
+        for (int i =0; i<flights.size();i++){
+            Flight flight=this.flights.get(i);
+            if (city.equals(flight.departure)){
+                System.out.println(flight.flightFromTo());
+          //      return;
+            }
+        }
+    }
+
 
 
 
