@@ -7,7 +7,8 @@ public class Main2 {
     public static void main(String[] args) {
         FlightDatabase flightDatabase = new FlightDatabase();
         flightDatabase.CheckIfFlightExists("Warsaw", "New York");
-        flightDatabase.getFlightsFromCity("Warsaw");
+        flightDatabase.getFlightsFromCity("Waw");
+        flightDatabase.getFlightToCity("New York");
     }
 }
 class Flight{
@@ -32,7 +33,7 @@ class FlightDatabase{
         this.flights.add(new Flight("Praga", "Mexico City"));
         this.flights.add(new Flight("Paris", "London"));
         this.flights.add(new Flight("Warsaw", "Liverpool"));
-        this.flights.add(new Flight("Moscow", "Pekin"));
+        this.flights.add(new Flight("Moscow", "New York"));
         this.flights.add(new Flight("Porto", "Madrid"));
         this.flights.add(new Flight("Londyn", "Warsaw"));
 
@@ -57,11 +58,26 @@ class FlightDatabase{
             Flight flight=this.flights.get(i);
             if (city.equals(flight.departure)){
                 System.out.println(flight.flightFromTo());
-          //      return;
+          cityExists = false;
             }
         }
+        if (cityExists){
+            System.out.println("Flight not found!!!");
+        }
     }
-
+    public  void getFlightToCity(String toCity){
+        boolean toCityExists = true;
+        for (int i =0; i<flights.size();i++){
+            Flight flight= this.flights.get(i);
+            if (toCity.equals(flight.arrival)){
+                System.out.println(flight.flightFromTo());
+                toCityExists =false;
+            }
+        }
+        if (toCityExists){
+            System.out.println("Flight not found!!");
+        }
+    }
 
 
 
